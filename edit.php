@@ -14,7 +14,6 @@ if (!isset($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-// Lấy thông tin nhân viên
 $sql = "SELECT * FROM nhanvien WHERE Ma_NV = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
@@ -27,11 +26,9 @@ if (!$nhanvien) {
     exit();
 }
 
-// Lấy danh sách phòng ban
 $phongban_sql = "SELECT * FROM phongban";
 $phongban_result = $conn->query($phongban_sql);
 
-// Cập nhật thông tin nhân viên
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ten_nv = $_POST['Ten_NV'];
     $phai = $_POST['Phai'];
@@ -58,7 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chỉnh sửa Nhân Viên</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">

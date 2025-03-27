@@ -8,7 +8,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
 include 'config.php';
 
 if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); // Chuyển ID thành số nguyên
+    $id = intval($_GET['id']); 
 
     $sql = "DELETE FROM nhanvien WHERE Ma_NV = ?";
     $stmt = $conn->prepare($sql);

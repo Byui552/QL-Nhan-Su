@@ -1,14 +1,10 @@
 <?php
 session_start();
 include 'config.php';
-
-// Kiểm tra quyền admin
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
     header("Location: index.php");
     exit();
 }
-
-// Lấy danh sách phòng ban
 $sql_phongban = "SELECT Ma_Phong, Ten_Phong FROM phongban";
 $result_phongban = $conn->query($sql_phongban);
 
@@ -31,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
